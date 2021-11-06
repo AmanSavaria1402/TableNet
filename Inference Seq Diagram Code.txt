@@ -1,0 +1,16 @@
+title TableNet(Inference in the streamlit webapp)
+User->StreamLitApp: Uploads the image.
+note left of StreamLitApp: App loads the model architecture and pretrained weights and caches it.
+StreamLitApp->DecodeImageFucn: Sends uploader object.
+DecodeImageFucn->PredictMasksFucn: Sends the pixel values of the image.
+note over PredictMasksFucn: PredictMasksFucn takes as input the loaded neural network model.
+PredictMasksFucn->GetMaskImageFunc: Sends the table mask.
+PredictMasksFucn->GetMaskImageFunc: Sends the column mask.
+GetMaskImageFunc->FilterTableFunc: Sends the table mask.
+FilterTableFunc->OCR_ReaderFunc: Sends the Filtered Table
+OCR_ReaderFunc->StreamLitApp: Returns text from the table.
+FilterTableFunc->StreamLitApp: Returns the filtered table image.
+GetMaskImageFunc->StreamLitApp: Returns the column mask image.
+GetMaskImageFunc->StreamLitApp: Returns the table mask image.
+StreamLitApp->User: Shows the Original Image, Column Mask, Table Mask and filtered table.
+StreamLitApp->User: Shows the extracted text from the table.
