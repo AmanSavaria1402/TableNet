@@ -1,0 +1,11 @@
+title TableNet (Training Time flow)
+
+Data Preprocessing->Splitting Dataset: Splitting dataset.
+note left of Data Preprocessing: Step1: Organizing Images and xml files in the different folders.\nStep2: Making Table and column masks from the xml files and saving them.
+note over Splitting Dataset: Split ratio: 80-20% training-test split.
+Splitting Dataset->CustomDatasetObject: Created custom tf.Data dataset for better training.
+note left of  CustomDatasetObject: The original image, table and column masks were min-max normalized.
+ModelArchitecture->ModelObject: Created and redied the modle architecture for training.
+note over ModelArchitecture: Model was made using mix of existing and some tf.keras.layers.Layer layers.
+CustomDatasetObject->ModelObject: Sent the training and test dataset objects for fitting.
+note over ModelObject: Multiple architectures of the model were trained for 20 epochs.\n The best performing weights were saved.
